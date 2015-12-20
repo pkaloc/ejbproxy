@@ -12,7 +12,8 @@ and eventually put it into a specific structure and run the *create-ear* goal of
 *maven-ejbproxy-plugin* maven plugin. This will 'transform' your original app into a
 reverse proxy one. You will then just swap your currently deployed app with this one,
 and the original app will get deployed on as many other servers as it'll be needed.
-Best if you take a look at the accompanying *ejbproxy-test* project for how-tos.
+Best if you take a look at the accompanying *[ejbproxy-test](https://github.com/premysl-kaloc/ejbproxy-test)*
+project for how-tos.
 
 In case you won't forget to specify those servers in the ejbproxy configuration file,
 the runtime will ensure logic within your EJBs won't get executed on the frontline server,
@@ -27,5 +28,5 @@ by the *create-ear* goal and is accessible at */ejbproxywc* url.
 *Caveat: I came up with this tiny library while working on one enterprise app with extremely convoluted back-end
 side. JBoss AS 4 was in use and there wasn't any other solution available how to get this done.
 Although the codebase as such is generic, it works only for jndi-bound remote beans. Moreover, it currently assumes
-it's running on JBoss AS 4 as there's only JBoss4JndiGlobalNameComposer implementation of JndiGlobalNameComposer
+it's running on JBoss AS 4 as there's only JBoss4JndiGlobalNameComposer implementation of [JndiGlobalNameComposer](ejbproxy-runtime/src/main/java/ejbproxy/runtime/util/jndi/JndiGlobalNameComposer.java)
 available. Please take a look at this interface for more info.*
