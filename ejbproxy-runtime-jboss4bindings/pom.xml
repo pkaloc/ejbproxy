@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ejbproxy</groupId>
+		<artifactId>ejbproxy-parent</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<artifactId>ejbproxy-runtime-jboss4bindings</artifactId>
+	<packaging>jar</packaging>
+
+	<name>EJBProxy-Runtime - JBoss4 bindings</name>
+
+	<properties>
+		<jboss-annotations-ejb3.version>4.2.2.GA</jboss-annotations-ejb3.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ejbproxy</groupId>
+			<artifactId>ejbproxy-runtime</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jboss-annotations-ejb3</artifactId>
+			<version>${jboss-annotations-ejb3.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

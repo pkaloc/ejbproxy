@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<appender name="STDOUT_STD" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="STDOUT_INV" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] Proxied invocation upon ejb:%n%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Log warnings and errors only by default -->
+	<root level="WARN">
+		<!-- log to the standard output with the default logback pattern -->
+		<appender-ref ref="STDOUT_STD" />
+	</root>
+
+	<!-- InvocationLoggers log on the trace level -->
+	<logger name="ejbproxy.runtime.invocation.InvocationLogger"
+		level="TRACE">
+		<!-- log to the standard output with a modified pattern appropriate for 
+			invocation logging -->
+		<appender-ref ref="STDOUT_INV" />
+	</logger>
+
+</configuration>
